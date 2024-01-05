@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Health App</title>
+</head>
+<body>
+
+    <h1>Health App</h1>
+
+    <div id="contactInfo">
+        <h2>Contact Information</h2>
+        <p id="phoneNumber">Mobile Number: <span id="editableNumber" contenteditable="true">112</span></p>
+        <button onclick="callNumber()">Call</button>
+    </div>
+
+    <script>
+        function callNumber() {
+            const phoneNumber = document.getElementById('editableNumber').innerText.trim();
+
+            // Check if the phone number is valid
+            if (/^\d{10}$/.test(phoneNumber)) {
+                // Open the dialer with the specified number
+                window.location.href = 'tel:' + phoneNumber;
+            } else {
+                alert('Invalid phone number. Please edit the number and try again.');
+            }
+        }
+    </script>
+
+</body>
+</html>
